@@ -18,11 +18,7 @@
 -   **⚡ Ultra-Fast Caching**: SQLite-based caching ensures instant re-scans and crash resilience.
 -   **🎨 Modern Web Interface**: A sleek, dark-mode React frontend for easy folder selection and project management.
 
-## 🛠️ Technology Stack
-
--   **Backend**: Python, FastAPI, SQLite, PyTorch, OpenCV, MoviePy v2
--   **Frontend**: React, Vite, Chakra UI, Lucide Icons
--   **Packaging**: Setuptools (Wheel)
+![App Screenshot](docs/screenshot.png)
 
 ## 📦 Installation
 
