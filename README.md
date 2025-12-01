@@ -31,7 +31,7 @@
 This tool is packaged as a single Python Wheel file for easy installation.
 
 **Install via PIP**:
-    ```bash
+    ```
     pip install video-highlight-generator==0.1.0
     ```
 
@@ -39,7 +39,7 @@ This tool is packaged as a single Python Wheel file for easy installation.
 
 1.  **Start the Application**:
     Run the following command in your terminal:
-    ```bash
+    ```
     video_highlight_generator
     ```
 
