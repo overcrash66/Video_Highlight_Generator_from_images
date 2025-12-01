@@ -30,14 +30,9 @@
 
 This tool is packaged as a single Python Wheel file for easy installation.
 
-1.  **Build the Package** (if not already built):
-    ```powershell
-    python setup.py bdist_wheel
-    ```
-
-2.  **Install via PIP**:
+**Install via PIP**:
     ```bash
-    pip install dist/video_highlight_generator-0.1.0-py3-none-any.whl --force-reinstall
+    pip install video-highlight-generator==0.1.0
     ```
 
 ## 🎮 Usage
@@ -45,7 +40,7 @@ This tool is packaged as a single Python Wheel file for easy installation.
 1.  **Start the Application**:
     Run the following command in your terminal:
     ```bash
-    python -m video_highlight_generator.main
+    video_highlight_generator
     ```
 
 2.  **Open the Web Interface**:
