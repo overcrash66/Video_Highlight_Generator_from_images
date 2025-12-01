@@ -18,7 +18,7 @@
 -   **⚡ Ultra-Fast Caching**: SQLite-based caching ensures instant re-scans and crash resilience.
 -   **🎨 Modern Web Interface**: A sleek, dark-mode React frontend for easy folder selection and project management.
 
-![App Screenshot](docs/screenshot.png)
+![App Screenshot](docs/demo.png)
 
 ## 📦 Installation
 
