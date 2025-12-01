@@ -21,26 +21,22 @@ sudo apt-get install python3-pip python3-venv ffmpeg libsm6 libxext6
 
 1.  **Create a Virtual Environment (Recommended)**
 
-    ```bash
+    ```
     python3 -m venv venv
     source venv/bin/activate
     ```
 
 2.  **Install the Package**
 
-    Navigate to the directory containing the `.whl` file (usually `dist/`) and install it:
-
-    ```bash
-    pip install video_highlight_generator-0.1.0-py3-none-any.whl
     ```
-
-    *Note: Replace the filename with the actual name of the generated wheel file.*
+    pip install video-highlight-generator
+    ```
 
 ## Running the Application
 
 Once installed, you can run the application using the command line:
 
-```bash
+```
 video-highlight-generator
 ```
 
