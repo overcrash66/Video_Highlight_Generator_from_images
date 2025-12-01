@@ -33,6 +33,11 @@ This tool is packaged as a single Python Wheel file for easy installation.
     pip install video-highlight-generator==0.1.0
     ```
 
+## 📚 Documentation
+
+- [Docker Usage Guide](docs/docker_usage.md)
+- [Linux Installation Instructions](docs/linux_install_instructions.md)
+
 ## 🎮 Usage
 
 1.  **Start the Application**:
