@@ -2,8 +2,6 @@
 
 **Video Highlight Generator** is a powerful, standalone AI tool that automatically creates engaging highlight videos from your photo collections. It combines state-of-the-art image analysis, face detection, and smart audio syncing to turn your memories into movies.
 
-![Banner](https://via.placeholder.com/800x200?text=Video+Highlight+Generator)
-
 ## 🚀 Features
 
 -   **🧠 Smart Image Analysis**: Uses **MobileNetV3** to score image quality (sharpness, composition) and classify content.
