@@ -4,7 +4,7 @@ import {
     Input, Select, Slider, SliderTrack, SliderFilledTrack, SliderThumb,
     Card, CardBody, CardHeader, SimpleGrid, Image, Badge,
     FormControl, FormLabel, Progress, Spinner, Icon,
-    List, ListItem, Divider, Flex, Spacer, Tag
+    List, ListItem, Divider, Flex, Spacer, Tag, Switch
 } from '@chakra-ui/react';
 import {
     FolderPlus, Trash2, Play, Pause, Music, Film,
@@ -38,6 +38,7 @@ function App() {
 
     const [imageDuration, setImageDuration] = useState(3.0);
     const [titleText, setTitleText] = useState('');
+    const [kenBurnsEffect, setKenBurnsEffect] = useState(false);
 
     // Waveform refs
     const waveformRef = useRef(null);
@@ -220,7 +221,7 @@ function App() {
         setGeneratedVideo(null);
         try {
             const imagePaths = filteredImages.map(img => img.path);
-            const res = await api.generate(imagePaths, outputPath, resolution, audioPath, audioStart, audioEnd, imageDuration, titleText);
+            const res = await api.generate(imagePaths, outputPath, resolution, audioPath, audioStart, audioEnd, imageDuration, titleText, kenBurnsEffect);
 
             if (res.status === 'started') {
                 // Poll for progress
@@ -293,28 +294,6 @@ function App() {
                                     <Button leftIcon={<FolderPlus />} onClick={handleBrowse} colorScheme="brand" variant="outline">
                                         Add Folder
                                     </Button>
-
-                                    {/* Manual Path Entry (for Docker/Headless) */}
-                                    <HStack>
-                                        <Input
-                                            placeholder="/path/to/images"
-                                            onKeyDown={(e) => {
-                                                if (e.key === 'Enter' && e.target.value) {
-                                                    if (!folderPaths.includes(e.target.value)) {
-                                                        setFolderPaths([...folderPaths, e.target.value]);
-                                                        e.target.value = '';
-                                                    }
-                                                }
-                                            }}
-                                        />
-                                        <Button onClick={(e) => {
-                                            const input = e.target.previousSibling;
-                                            if (input.value && !folderPaths.includes(input.value)) {
-                                                setFolderPaths([...folderPaths, input.value]);
-                                                input.value = '';
-                                            }
-                                        }}>Add</Button>
-                                    </HStack>
 
                                     {folderPaths.length > 0 && (
                                         <List spacing={2}>
@@ -428,6 +407,13 @@ function App() {
                                             <Input value={outputPath} isReadOnly size="sm" />
                                             <Button size="sm" onClick={handleBrowseOutput}>Browse</Button>
                                         </HStack>
+                                    </FormControl>
+
+                                    <FormControl display="flex" alignItems="center">
+                                        <FormLabel htmlFor="ken-burns" mb="0">
+                                            Ken Burns Effect
+                                        </FormLabel>
+                                        <Switch id="ken-burns" isChecked={kenBurnsEffect} onChange={(e) => setKenBurnsEffect(e.target.checked)} />
                                     </FormControl>
                                 </VStack>
                             </CardBody>

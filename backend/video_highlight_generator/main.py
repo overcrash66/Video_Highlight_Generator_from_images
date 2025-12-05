@@ -39,6 +39,7 @@ class VideoRequest(BaseModel):
     resolution: str = "1080p" # 1080p (PC) or 9:16 (Phone)
     image_duration: float = 3.0
     title_text: Optional[str] = ""
+    ken_burns_effect: bool = False
 
 from fastapi import Header
 from fastapi.responses import StreamingResponse
@@ -300,8 +301,15 @@ def process_video_generation(request: VideoRequest, output_path: str, resolution
 
         update_progress("generating", 0, "Starting video generation...")
         
+        # Fetch face data for each image
+        images_with_data = []
+        for path in final_images:
+            data = db.get_image_data(path)
+            faces = data.get('faces', []) if data else []
+            images_with_data.append({'path': path, 'faces': faces})
+
         success = video_generator.generate_video(
-            final_images, 
+            images_with_data, 
             request.audio_path, 
             output_path,
             resolution=resolution,
@@ -309,6 +317,7 @@ def process_video_generation(request: VideoRequest, output_path: str, resolution
             audio_end=request.audio_end,
             image_duration=request.image_duration,
             title_text=request.title_text,
+            ken_burns_effect=request.ken_burns_effect,
             progress_callback=progress_callback
         )
         

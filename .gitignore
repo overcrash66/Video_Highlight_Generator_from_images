@@ -181,3 +181,4 @@ cython_debug/
 .cursorindexingignore
 frontend/node_modules/
 scripts/
+video_highlight_generator.db

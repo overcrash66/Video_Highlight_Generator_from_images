@@ -10,7 +10,7 @@ export const api = {
         return res.json();
     },
 
-    generate: async (imagePaths, outputPath, resolution, audioPath, audioStart, audioEnd, imageDuration, titleText) => {
+    generate: async (imagePaths, outputPath, resolution, audioPath, audioStart, audioEnd, imageDuration, titleText, kenBurnsEffect) => {
         const res = await fetch(`${API_BASE}/generate`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -22,7 +22,8 @@ export const api = {
                 audio_start: audioStart,
                 audio_end: audioEnd,
                 image_duration: imageDuration,
-                title_text: titleText
+                title_text: titleText,
+                ken_burns_effect: kenBurnsEffect
             })
         });
         return res.json();
