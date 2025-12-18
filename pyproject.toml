@@ -1,3 +1,36 @@
 [build-system]
-requires = ["setuptools>=42", "wheel"]
+requires = ["setuptools>=61.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "video_highlight_generator"
+version = "0.1.2"
+description = "A powerful, standalone AI tool that automatically creates engaging highlight videos from your photo collections."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Wael SAHLI"}]
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "opencv-python",
+    "torch",
+    "facenet-pytorch",
+    "moviepy>=2.0.0.dev0",
+    "numpy>=2.0.0",
+    "Pillow",
+    "python-multipart",
+    "aiofiles",
+]
+
+[project.urls]
+Homepage = "https://github.com/overcrash66/Video_Highlight_Generator_from_images"
+Repository = "https://github.com/overcrash66/Video_Highlight_Generator_from_images"
+
+[project.scripts]
+video-highlight-generator = "video_highlight_generator.main:start"
+
+[tool.setuptools]
+package-dir = {"" = "backend"}
+
+[tool.setuptools.packages.find]
+where = ["backend"]
